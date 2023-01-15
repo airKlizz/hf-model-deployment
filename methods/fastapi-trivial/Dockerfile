@@ -7,6 +7,7 @@ RUN sudo apt-get install git-lfs
 COPY ./setup.sh /code/setup.sh
 RUN chmod +x setup.sh
 RUN ./setup.sh
+COPY ./main.py /code/main.py
 
 FROM python:3.10
 RUN echo "update"
@@ -14,5 +15,5 @@ WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY --from=0 /code/bart-large-mnli /code/bart-large-mnli
-COPY ./main.py /code/main.py
+COPY --from=0 /code/main.py /code/main.py
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
