@@ -1,5 +1,4 @@
 FROM ubuntu:latest
-RUN echo "update"
 WORKDIR /code
 RUN apt update && apt-get install -y curl python3.10 sudo git pip python-is-python3
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
@@ -12,10 +11,9 @@ RUN chmod +x setup.sh
 RUN ./setup.sh
 
 FROM python:3.10
-RUN echo "update"
 WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY --from=0 /code/onnx /code/onnx
-COPY ./main.py /code/main.py
+COPY ./app.py /code/main.py
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
