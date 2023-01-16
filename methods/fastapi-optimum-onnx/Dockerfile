@@ -11,6 +11,7 @@ RUN chmod +x setup.sh
 RUN ./setup.sh
 
 FROM python:3.10
+EXPOSE 80
 WORKDIR /code
 COPY ./methods/fastapi-optimum-onnx/requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
