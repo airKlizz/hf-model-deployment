@@ -25,7 +25,7 @@ jobs:
           context: .
           file: ./methods/fastapi-trivial/Dockerfile
           push: true
-          platform: "linux/amd64,linux/arm64,linux/arm/v7"
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-trivial:latest
       - name: Build and push FastAPI Optimum ONNX
         uses: docker/build-push-action@v3
@@ -33,7 +33,7 @@ jobs:
           context: .
           file: ./methods/fastapi-optimum-onnx/Dockerfile
           push: true
-          platform: "linux/amd64,linux/arm64,linux/arm/v7"
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-optimum-onnx:latest
       - name: Checkout code
         uses: actions/checkout@v2
