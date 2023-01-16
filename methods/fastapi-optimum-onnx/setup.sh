@@ -1,3 +1,4 @@
+#!/bin/sh
 echo "Download model from the HuggingFace Hub"
 git lfs install
 git clone https://huggingface.co/facebook/bart-large-mnli
