@@ -15,6 +15,10 @@ model = ORTModelForSequenceClassification.from_pretrained("./onnx", file_name="m
 tokenizer = AutoTokenizer.from_pretrained("./onnx")
 classifier = pipeline("zero-shot-classification", model=model, tokenizer=tokenizer)
 
+@app.get("/")
+async def health():
+    return
+
 @app.post("/")
 async def root(request: Request):
     return classifier(request.sequence, request.labels, multi_label=request.multi_class)

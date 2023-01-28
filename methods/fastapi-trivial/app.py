@@ -13,6 +13,10 @@ app = FastAPI()
 
 classifier = pipeline("zero-shot-classification", model="./bart-large-mnli")
 
+@app.get("/")
+async def health():
+    return
+
 @app.post("/")
 async def root(request: Request):
     return classifier(request.sequence, request.labels, multi_label=request.multi_class)
