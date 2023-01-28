@@ -50,10 +50,16 @@ This will start the server and you can test the API.
 
 ## Create Docker image
 
-Again from each method folder, you can run:
+Go back to the root folder of the project:
 
 ```bash
-docker build -t $METHOD_NAME .
+cd ../..
+```
+
+And you can build the Docker image:
+
+```bash
+docker build -t $METHOD_NAME -f methods/$METHOD_NAME/Dockerfile .
 ```
 
 This will create the docker image.
