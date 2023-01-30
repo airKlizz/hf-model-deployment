@@ -1,7 +1,6 @@
 __pycache__
 bart-large-mnli
 onnx
-*.json
 .envrc
 .terraform
 .terraform.lock.hcl
