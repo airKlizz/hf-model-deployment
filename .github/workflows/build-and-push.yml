@@ -35,5 +35,13 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-optimum-onnx:latest
+      - name: Build and push FastAPI Optimum Intel
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./methods/fastapi-optimum-intel/Dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-optimum-intel:latest
       - name: Checkout code
         uses: actions/checkout@v2
