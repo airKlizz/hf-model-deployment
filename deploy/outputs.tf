@@ -1,3 +1,11 @@
+output "fastapi_optimum_intel_amd_dns_name" {
+  value = aws_lb.fastapi_optimum_intel_amd.dns_name
+}
+
+output "fastapi_optimum_intel_arm_dns_name" {
+  value = aws_lb.fastapi_optimum_intel_arm.dns_name
+}
+
 output "fastapi_optimum_onnx_amd_dns_name" {
   value = aws_lb.fastapi_optimum_onnx_amd.dns_name
 }

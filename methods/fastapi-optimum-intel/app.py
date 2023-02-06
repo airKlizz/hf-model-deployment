@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from typing import List
 from optimum.intel.openvino import OVModelForSequenceClassification
 
-
 class Request(BaseModel):
     sequence: str
     labels: List[str]

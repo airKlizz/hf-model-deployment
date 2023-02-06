@@ -6,9 +6,9 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
 export const options = {
   stages: [
-    {duration: "10", target: 20},
-    {duration: "30s", target: 10},
-    {duration: "5s", target: 1},
+    {duration: "1s", target: 3},
+    {duration: "58s", target: 3},
+    {duration: "1s", target: 0},
   ],
 };
 
